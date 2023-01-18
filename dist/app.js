@@ -13,19 +13,17 @@ function foo() {
     return __awaiter(this, void 0, void 0, function* () {
         const response = yield fetch("https://restcountries.com/v3.1/all");
         const indata = yield response.json();
-        console.log(indata);
+        indata.sort(function (a, b) {
+            if (a.name < b.name)
+                return -1;
+            if (a.name > b.name)
+                return 1;
+            return 0;
+        });
         indata.forEach((country) => {
             const container = document.querySelector(".container");
             const countryCard = document.createElement("div");
-            country.sort(function (a, b) {
-                if (a.name < b.name)
-                    return -1;
-                if (a.name > b.name)
-                    return 1;
-                return 0;
-            });
-            console.log(country);
-            countryCard.innerHTML = `${country.name.official}`;
+            countryCard.innerHTML = `${country.name.common} <br/> ${country.capital}`;
             container.append(countryCard);
         });
     });
