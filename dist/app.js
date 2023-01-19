@@ -14,17 +14,24 @@ function foo() {
         const response = yield fetch("https://restcountries.com/v3.1/all");
         const indata = yield response.json();
         indata.sort(function (a, b) {
-            if (a.name < b.name)
+            if (a.name.common < b.name.common)
                 return -1;
-            if (a.name > b.name)
+            if (a.name.common > b.name.common)
                 return 1;
             return 0;
         });
         indata.forEach((country) => {
             const container = document.querySelector(".container");
             const countryCard = document.createElement("div");
-            countryCard.innerHTML = `${country.name.common} <br/> ${country.capital}`;
+            const infoSection = document.createElement("article");
+            const flags = document.createElement("img");
+            countryCard.className = "card";
+            infoSection.className = "info";
+            infoSection.innerHTML = `${country.name.common} <br/> Capital: ${country.capital}`;
+            flags.src = country.flags.svg;
             container.append(countryCard);
+            countryCard.append(infoSection);
+            countryCard.append(flags);
         });
     });
 }

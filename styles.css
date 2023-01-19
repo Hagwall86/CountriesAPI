@@ -1,7 +1,45 @@
 html {
-    background: rgb(182, 77, 77);
+    /* background: rgb(182, 77, 77); */
+    /* background: linear-gradient(green, yellow) */
+    background: radial-gradient( rgba(255, 255, 255, 0), rgba(255,0,0,1), rgb(220, 150, 1),  rgb(100, 150, 1),rgb(1, 36, 150));
 
 }
 
+/* body {
 
+} */
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background: linear-gradient(hsl(240, 50%, 50%), hsl(120, 50%, 50%)) ;
+    display: flex;
+    max-width: fit-content;
+    justify-content: center;
+    /* box-shadow: 10px 5px 5px black; */
+    margin: 5px;
+    padding: 20px;
+    max-width: 200px;
+    max-height: 100px;
+
+}
+
+.info {
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 3px 3px black, -1em 0 .4em black;
+    max-width: fit-content;
+    border: solid 3px black;
+    margin: 0px;
+
+}
+
+img {
+    max-width: 100px;
+    max-height: 50px;
+}
 
